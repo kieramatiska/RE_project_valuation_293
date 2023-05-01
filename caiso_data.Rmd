@@ -1,0 +1,197 @@
+---
+title: "Historical LMP"
+author: "Kiera Matiska"
+date: "2023-05-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(here)
+library(janitor)
+library(lubridate)
+```
+
+## Data Organization
+
+```{r}
+# January Data
+jan_lmp <- read_csv(here("data", "Jan2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+jan_lmp <- jan_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(jan_lmp, file = "jan_lmp.csv")
+```
+
+```{r}
+# February Data
+feb_lmp <- read_csv(here("data", "Feb2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+feb_lmp <- feb_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(feb_lmp, file = "feb_lmp.csv")
+```
+
+```{r}
+# March Data
+mar_lmp <- read_csv(here("data", "Mar2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+mar_lmp <- mar_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(mar_lmp, file = "mar_lmp.csv")
+```
+
+```{r}
+# April Data
+apr_lmp <- read_csv(here("data", "Apr2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+apr_lmp <- apr_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(apr_lmp, file = "apr_lmp.csv")
+```
+
+```{r}
+# May Data
+may_lmp <- read_csv(here("data", "May2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+may_lmp <- may_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(may_lmp, file = "may_lmp.csv")
+```
+
+```{r}
+# June Data
+jun_lmp <- read_csv(here("data", "Jun2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+jun_lmp <- jun_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(jun_lmp, file = "jun_lmp.csv")
+```
+
+```{r}
+# July Data
+jul_lmp <- read_csv(here("data", "Jul2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+jul_lmp <- jul_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(jul_lmp, file = "jul_lmp.csv")
+```
+
+```{r}
+# August Data
+aug_lmp <- read_csv(here("data", "Aug2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+aug_lmp <- aug_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(aug_lmp, file = "aug_lmp.csv")
+```
+
+```{r}
+# September Data
+sept_lmp <- read_csv(here("data", "Sep2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+sept_lmp <- sept_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(sept_lmp, file = "sept_lmp.csv")
+```
+
+```{r}
+# October Data
+oct_lmp <- read_csv(here("data", "Oct2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+oct_lmp <- oct_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(oct_lmp, file = "oct_lmp.csv")
+```
+
+```{r}
+# November Data
+nov_lmp <- read_csv(here("data", "Nov2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+nov_lmp <- nov_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(nov_lmp, file = "nov_lmp.csv")
+```
+
+```{r}
+# December Data
+dec_lmp <- read_csv(here("data", "Dec2021_LMP.csv")) %>% 
+  clean_names() %>% 
+  filter(xml_data_item == "LMP_PRC")
+
+
+dec_lmp <- dec_lmp %>% 
+  mutate(opr_dt = ymd(opr_dt)) %>% 
+  select(intervalstarttime_gmt, intervalendtime_gmt, 
+         opr_dt, opr_hr, node, lmp_type, mw)
+
+write_csv(dec_lmp, file = "dec_lmp.csv")
+```
