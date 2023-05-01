@@ -22,11 +22,37 @@ jan_lmp <- read_csv(here("data", "Jan2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 jan_lmp <- jan_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(jan_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(jan_lmp, file = "jan_lmp.csv")
 ```
@@ -37,11 +63,37 @@ feb_lmp <- read_csv(here("data", "Feb2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 feb_lmp <- feb_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(feb_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(feb_lmp, file = "feb_lmp.csv")
 ```
@@ -52,11 +104,37 @@ mar_lmp <- read_csv(here("data", "Mar2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 mar_lmp <- mar_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(mar_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(mar_lmp, file = "mar_lmp.csv")
 ```
@@ -67,11 +145,37 @@ apr_lmp <- read_csv(here("data", "Apr2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 apr_lmp <- apr_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(apr_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(apr_lmp, file = "apr_lmp.csv")
 ```
@@ -82,11 +186,37 @@ may_lmp <- read_csv(here("data", "May2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 may_lmp <- may_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(may_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(may_lmp, file = "may_lmp.csv")
 ```
@@ -97,11 +227,37 @@ jun_lmp <- read_csv(here("data", "Jun2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 jun_lmp <- jun_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(jun_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(jun_lmp, file = "jun_lmp.csv")
 ```
@@ -112,11 +268,37 @@ jul_lmp <- read_csv(here("data", "Jul2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 jul_lmp <- jul_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(jul_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(jul_lmp, file = "jul_lmp.csv")
 ```
@@ -127,11 +309,37 @@ aug_lmp <- read_csv(here("data", "Aug2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 aug_lmp <- aug_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(aug_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(aug_lmp, file = "aug_lmp.csv")
 ```
@@ -142,11 +350,37 @@ sept_lmp <- read_csv(here("data", "Sep2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 sept_lmp <- sept_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(sept_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(sept_lmp, file = "sept_lmp.csv")
 ```
@@ -157,11 +391,37 @@ oct_lmp <- read_csv(here("data", "Oct2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 oct_lmp <- oct_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(oct_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(oct_lmp, file = "oct_lmp.csv")
 ```
@@ -172,11 +432,37 @@ nov_lmp <- read_csv(here("data", "Nov2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 nov_lmp <- nov_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(nov_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(nov_lmp, file = "nov_lmp.csv")
 ```
@@ -187,11 +473,37 @@ dec_lmp <- read_csv(here("data", "Dec2021_LMP.csv")) %>%
   clean_names() %>% 
   filter(xml_data_item == "LMP_PRC")
 
-
 dec_lmp <- dec_lmp %>% 
   mutate(opr_dt = ymd(opr_dt)) %>% 
   select(intervalstarttime_gmt, intervalendtime_gmt, 
-         opr_dt, opr_hr, node, lmp_type, mw)
+         opr_dt, opr_hr, node, lmp_type, mw) %>% 
+  mutate(hour_ext = substr(dec_lmp$intervalstarttime_gmt, 12, 19)) %>% 
+  mutate(hour = case_when(
+    hour_ext == "00:00:00" ~ "1",
+    hour_ext == "01:00:00" ~ "2",
+    hour_ext == "02:00:00" ~ "3",
+    hour_ext == "03:00:00" ~ "4",
+    hour_ext == "04:00:00" ~ "5",
+    hour_ext == "05:00:00" ~ "6",
+    hour_ext == "06:00:00" ~ "7",
+    hour_ext == "07:00:00" ~ "8",
+    hour_ext == "08:00:00" ~ "9",
+    hour_ext == "09:00:00" ~ "10",
+    hour_ext == "10:00:00" ~ "11",
+    hour_ext == "11:00:00" ~ "12",
+    hour_ext == "12:00:00" ~ "13",
+    hour_ext == "13:00:00" ~ "14",
+    hour_ext == "14:00:00" ~ "15",
+    hour_ext == "15:00:00" ~ "16",
+    hour_ext == "16:00:00" ~ "17",
+    hour_ext == "17:00:00" ~ "18",
+    hour_ext == "18:00:00" ~ "19",
+    hour_ext == "19:00:00" ~ "20",
+    hour_ext == "20:00:00" ~ "21",
+    hour_ext == "21:00:00" ~ "22",
+    hour_ext == "22:00:00" ~ "23",
+    hour_ext == "23:00:00" ~ "24"
+  ))
 
 write_csv(dec_lmp, file = "dec_lmp.csv")
 ```
